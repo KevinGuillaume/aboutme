@@ -1,0 +1,1 @@
+# Consolidating personal website to make it easier to read
