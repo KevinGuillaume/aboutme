@@ -41,20 +41,66 @@ function App() {
 
 
     {/* sections */}
-    <section id="about" className="px-10 py-20 p-4
+    <section id="experience" className="p-4
           relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
-          shadow-lg p-8 w-1/2 text-center border border-white/20 
+          shadow-lg w-1/2 border border-white/20 
           transform transition-all duration-300 ease-in-out">
-      <h3 className="text-3xl font-semibold mb-4">About Me</h3>
-      <p className="text-lg leading-relaxed text-gray-600 max-w-3xl">
-      </p>
+      <article>
+
+      <div className="flex flex-row justify-between">
+      <h3 className="text-2xl font-semibold mb-4">Company A</h3>
+      <p>May 2023 - Present</p>
+      </div>
+      <p>Software Engineer</p>
+      <ul>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+      </ul>
+      </article>
+    </section>
+    <section id="experience" className="p-4
+          relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
+          shadow-lg w-1/2 border border-white/20 
+          transform transition-all duration-300 ease-in-out">
+      <article>
+
+      <div className="flex flex-row justify-between">
+      <h3 className="text-2xl font-semibold mb-4">RedMane Technology LLC.</h3>
+      <p>July 2022 - May 2023</p>
+      </div>
+      <p>Software Engineer</p>
+      <ul>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+      </ul>
+      </article>
+    </section>
+    <section id="experience" className="p-4
+          relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
+          shadow-lg w-1/2 border border-white/20 
+          transform transition-all duration-300 ease-in-out">
+      <article>
+
+      <div className="flex flex-row justify-between">
+      <h3 className="text-2xl font-semibold mb-4">HBR Consulting</h3>
+      <p>August 2021 - July 2022</p>
+      </div>
+      <p>Software Engineer</p>
+      <ul>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+        <li>Did stuff</li>
+      </ul>
+      </article>
     </section>
 
-    <section id="experience" className="px-10 py-20 p-4
+    <section id="contact" className="px-10 py-20 p-4
           relative z-10  bg-white/30  backdrop-blur-md rounded-xl 
           shadow-lg p-8 w-1/2 text-center m-auto border border-white/20 
           transform transition-all duration-300 ease-in-out">
-      <h3 className="text-3xl font-semibold mb-4">Experience</h3>
+      <h3 className="text-3xl font-semibold mb-4">Contact</h3>
       <p className="text-lg text-gray-600 max-w-3xl">
       </p>
     </section>
