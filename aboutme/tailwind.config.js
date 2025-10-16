@@ -7,7 +7,7 @@ export default {
         sans: ['DM Sans', 'sans-serif'],
       },
       backgroundImage: {
-        howl: "url('/src/assets/howls2.jpg')",
+        howl: "url('/src/assets/howlsbackground.gif')",
       },
     },
   },
