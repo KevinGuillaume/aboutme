@@ -20,7 +20,7 @@ function App() {
   <div className="flex flex-row items-center space-x-6 text-left">
     {/* Profile Image */}
     <img
-      src="/src/assets/profilepic.png"  // replace with your image path
+      src="/src/assets/profilepic.png"
       alt="Kevin Guillaume"
       className="w-32 h-32 rounded-full border-2 border-white/40 shadow-md object-cover"
     />
@@ -41,60 +41,112 @@ function App() {
 
 
     {/* sections */}
-    <section id="experience" className="p-4
-          relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
-          shadow-lg w-1/2 border border-white/20 
-          transform transition-all duration-300 ease-in-out">
-      <article>
+    <section
+  id="experience"
+  className="group relative z-10 w-11/12 md:w-1/2 m-auto 
+             p-6 md:p-8 bg-white/30 backdrop-blur-md rounded-2xl 
+             border border-white/20 shadow-md 
+             transition-all duration-300 ease-in-out 
+             hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-200/50"
+>
+  <div
+    className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r 
+               from-indigo-400/20 via-pink-400/20 to-purple-400/20 
+               opacity-0 group-hover:opacity-100 transition duration-500 blur-sm"
+  ></div>
 
-      <div className="flex flex-row justify-between">
-      <h3 className="text-2xl font-semibold mb-4">Company A</h3>
-      <p>May 2023 - Present</p>
-      </div>
-      <p>Software Engineer</p>
-      <ul>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-      </ul>
-      </article>
-    </section>
-    <section id="experience" className="p-4
-          relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
-          shadow-lg w-1/2 border border-white/20 
-          transform transition-all duration-300 ease-in-out">
-      <article>
+  <article className="relative">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+      <h3 className="text-2xl font-semibold text-gray-800 mb-2 md:mb-0">
+        Investment Management Firm<span className="text-gray-500">*</span>
+      </h3>
+      <p className="text-gray-600 text-sm md:text-base">May 2023 – Present</p>
+    </div>
 
-      <div className="flex flex-row justify-between">
-      <h3 className="text-2xl font-semibold mb-4">RedMane Technology LLC.</h3>
-      <p>July 2022 - May 2023</p>
-      </div>
-      <p>Software Engineer</p>
-      <ul>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-      </ul>
-      </article>
-    </section>
-    <section id="experience" className="p-4
-          relative z-10  bg-white/30  m-auto backdrop-blur-md rounded-xl 
-          shadow-lg w-1/2 border border-white/20 
-          transform transition-all duration-300 ease-in-out">
-      <article>
+    <p className="text-gray-700 mt-3">
+      Created both internal and external facing products that make work easier.
+    </p>
 
-      <div className="flex flex-row justify-between">
-      <h3 className="text-2xl font-semibold mb-4">HBR Consulting</h3>
-      <p>August 2021 - July 2022</p>
-      </div>
-      <p>Software Engineer</p>
-      <ul>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-        <li>Did stuff</li>
-      </ul>
-      </article>
-    </section>
+    <ul className="list-disc list-inside text-gray-600 mt-4 space-y-2 marker:text-indigo-400">
+      <li>Built investor portfolio management application with complementary administrative platforms.</li>
+      <li>Developed a secure authentication system using Python and JWTs.</li>
+      <li>Improved data retrieval performance by building optimized REST APIs.</li>
+    </ul>
+
+    <p className="text-sm text-gray-500 mt-4 italic">
+      * Name redacted for compliance reasons.
+    </p>
+  </article>
+</section>
+
+<section
+  id="experience"
+  className="group relative z-10 w-11/12 md:w-1/2 m-auto 
+             p-6 md:p-8 bg-white/30 backdrop-blur-md rounded-2xl 
+             border border-white/20 shadow-md 
+             transition-all duration-300 ease-in-out 
+             hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-200/50"
+>
+  <div
+    className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r 
+               from-indigo-400/20 via-pink-400/20 to-purple-400/20 
+               opacity-0 group-hover:opacity-100 transition duration-500 blur-sm"
+  ></div>
+
+  <article className="relative">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+      <h3 className="text-2xl font-semibold text-gray-800 mb-2 md:mb-0">
+        RedMane Technology LLC.
+      </h3>
+      <p className="text-gray-600 text-sm md:text-base">July 2022 – May 2023</p>
+    </div>
+
+    <p className="text-gray-700 mt-3">
+      Built applications with the State of Missouri to provide citizens access to financial aid programs.
+    </p>
+
+    <ul className="list-disc list-inside text-gray-600 mt-4 space-y-2 marker:text-indigo-400">
+      <li>Implemented user application process.</li>
+      <li>Created sign-in and sign-up features.</li>
+      <li>Maintained and improved existing Java applications.</li>
+    </ul>
+  </article>
+</section>
+
+<section
+  id="experience"
+  className="group relative z-10 w-11/12 md:w-1/2 m-auto 
+             p-6 md:p-8 bg-white/30 backdrop-blur-md rounded-2xl 
+             border border-white/20 shadow-md 
+             transition-all duration-300 ease-in-out 
+             hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-200/50"
+>
+  <div
+    className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r 
+               from-indigo-400/20 via-pink-400/20 to-purple-400/20 
+               opacity-0 group-hover:opacity-100 transition duration-500 blur-sm"
+  ></div>
+
+  <article className="relative">
+    <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+      <h3 className="text-2xl font-semibold text-gray-800 mb-2 md:mb-0">
+        HBR Consulting Intern
+      </h3>
+      <p className="text-gray-600 text-sm md:text-base">August 2021 – July 2022</p>
+    </div>
+
+    <p className="text-gray-700 mt-3">
+      Full-stack intern where I increased overall employee collaboration and connection.
+    </p>
+
+    <ul className="list-disc list-inside text-gray-600 mt-4 space-y-2 marker:text-indigo-400">
+      <li>Created a front-facing database to help employees connect with experts in specific areas.</li>
+      <li>Presented technical ideas to management to get the product approved.</li>
+      <li>Led data collection and importing of employee skills and assets.</li>
+    </ul>
+  </article>
+</section>
+
 
     <section id="contact" className="px-10 py-20 p-4
           relative z-10  bg-white/30  backdrop-blur-md rounded-xl 
