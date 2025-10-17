@@ -27,7 +27,7 @@ function App() {
                       opacity-70 blur-md animate-pulse"
           ></div>
           <img
-            src="/src/assets/profilepic.png"
+            src="public/profilepic.png"
             alt="Kevin Guillaume"
             className="relative w-32 h-32 rounded-full border-4 border-white/40 
                       shadow-md object-cover"
