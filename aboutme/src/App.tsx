@@ -18,9 +18,11 @@ function App() {
 
       {/* hero */}
       <div className="border border-[var(--terminal-border)] rounded-md bg-[var(--terminal-surface)] p-10 flex gap-8 items-center flex-wrap">
-        <div className="w-[88px] h-[88px] rounded-full border-2 border-[var(--accent)] flex items-center justify-center text-[28px] font-bold text-[var(--accent)] shrink-0">
-          KG
-        </div>
+        <img
+          src="/avatar.png"
+          alt="Kevin Guillaume"
+          className="w-[88px] h-[88px] rounded-full border-2 border-[var(--accent)] object-cover shrink-0"
+        />
         <div className="flex-1 min-w-[280px]">
           <div className="text-[var(--accent)] text-sm mb-1.5">
             <span>$ whoami</span>
