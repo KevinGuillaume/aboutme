@@ -1,8 +1,46 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent: oklch(0.75 0.15 220);
+  --terminal-bg: oklch(0.16 0.02 250);
+  --terminal-surface: oklch(0.19 0.02 250);
+  --terminal-border: oklch(0.3 0.02 250);
+  --terminal-border-light: oklch(0.35 0.02 250);
+  --terminal-text: oklch(0.92 0.01 250);
+  --terminal-text-bright: oklch(0.96 0.01 250);
+  --terminal-text-chip: oklch(0.88 0.01 250);
+  --terminal-text-body: oklch(0.78 0.02 250);
+  --terminal-text-muted: oklch(0.72 0.02 250);
+  --terminal-text-dim: oklch(0.55 0.02 250);
+  --terminal-text-dimmer: oklch(0.5 0.02 250);
+  --terminal-text-faint: oklch(0.45 0.02 250);
+}
+
 body {
-  @apply font-sans bg-gradient-to-b from-sky-200 to-green-100 text-gray-800;
+  @apply font-mono;
+  margin: 0;
+  background: var(--terminal-bg);
+  color: var(--terminal-text);
+}
+
+::selection {
+  background: color-mix(in oklch, var(--accent) 35%, transparent);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+@keyframes blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
 }
