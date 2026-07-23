@@ -1,7 +1,38 @@
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaFileLines } from "react-icons/fa6";
 import Card from './components/Card'
 
-const skills = ["JavaScript", "TypeScript", "React", "Node.js", "MySQL", "NoSQL", "Asana"]
+const skills = ["JavaScript", "TypeScript", "React", "Node.js", "MySQL", "Postgres", "NoSQL (MongoDB)", "Asana", "Tailwind", "Bootstrap", "MaterialUI", "FastAPI", "Gunicorn"]
+
+const projects = [
+  {
+    title: "Gardenia",
+    link: "https://gardenia-g7p9.onrender.com/",
+    linkLabel: "→ view site",
+    description: "A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.",
+    tags: ["React", "TypeScript", "Node", "Postgres", "AI", "Prisma", "Stripe"],
+  },
+  {
+    title: "Shadow Sports Trader",
+    link: "https://github.com/KevinGuillaume/ShadowTrader",
+    linkLabel: "→ view code",
+    description: "A polymarket aggregator that lets you look at current and upcoming sports games. Shows their odds and additional information. Lets you see players on a team's roster and see how they perform against their opponent.",
+    tags: ["API", "React", "TypeScript", "Python", "Postgres"],
+  },
+  {
+    title: "Realtime Stocks",
+    link: "https://github.com/KevinGuillaume/RealtimeStocks",
+    linkLabel: "→ view code",
+    description: "A web app where a trader can watch live stock charts with technical analysis tools, and set custom alerts (\"notify me when X happens\") that fire in real time.",
+    tags: ["React", "TypeScript", "Python", "WebSockets", "Postgres"],
+  },
+  {
+    title: "Agents Find Jobs",
+    link: "https://agentsfindjobs.vercel.app",
+    linkLabel: "→ visit site",
+    description: "A web application meant for agentic payments to handle job searching. Payments are handled through MPP.",
+    tags: ["Next.js", "Blockchain", "Tempo", "MPP"],
+  },
+]
 
 function App() {
 
@@ -60,6 +91,14 @@ function App() {
               className="inline-flex items-center gap-1.5"
             >
               <FaXTwitter size={16} /> [ X ]
+            </a>
+            <a
+              href="/KevinResume_2026.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5"
+            >
+              <FaFileLines size={16} /> [ Resume ]
             </a>
           </div>
         </div>
@@ -123,14 +162,35 @@ function App() {
       {/* projects */}
       <div className="mt-7">
         <div className="text-[var(--accent)] text-sm mb-2.5">$ cd projects/</div>
-        <div className="border border-[var(--terminal-border)] rounded-md bg-[var(--terminal-surface)] p-7">
-          <div className="flex justify-between flex-wrap gap-2 items-baseline">
-            <h3 className="m-0 text-lg text-[var(--terminal-text-bright)]">Property Management Software</h3>
-            <a href="#" className="text-[13px]">→ view repo</a>
-          </div>
-          <p className="mt-3 mb-0 text-sm text-[var(--terminal-text-muted)]">
-            A personal project for managing rental properties — tracking tenants, leases, and payments in one place.
-          </p>
+        <div className="flex flex-col gap-4">
+          {projects.map((project) => (
+            <div
+              key={project.title}
+              className="border border-[var(--terminal-border)] rounded-md bg-[var(--terminal-surface)] p-7"
+            >
+              <div className="flex justify-between flex-wrap gap-2 items-baseline">
+                <h3 className="m-0 text-lg text-[var(--terminal-text-bright)]">{project.title}</h3>
+                {project.link && (
+                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="text-[13px]">
+                    {project.linkLabel ?? "→ view repo"}
+                  </a>
+                )}
+              </div>
+              <p className="mt-3 mb-0 text-sm text-[var(--terminal-text-muted)]">
+                {project.description}
+              </p>
+              <div className="flex flex-wrap gap-2 mt-4">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 border border-[var(--terminal-border-light)] rounded text-[12px] text-[var(--terminal-text-chip)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
