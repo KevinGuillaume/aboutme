@@ -1,52 +1,33 @@
+export default function Card(props: {
+  title: string;
+  timeSpent: string;
+  caption: string;
+  bullets: string[];
+  note?: string;
+}) {
+  const { title, timeSpent, caption, bullets, note } = props;
 
+  return (
+    <div className="border border-[var(--terminal-border)] rounded-md bg-[var(--terminal-surface)] p-7">
+      <div className="flex justify-between flex-wrap gap-2 items-baseline">
+        <h3 className="m-0 text-lg text-[var(--terminal-text-bright)]">
+          {title}
+          {note && <span className="text-[var(--terminal-text-dim)]">*</span>}
+        </h3>
+        <span className="text-[13px] text-[var(--terminal-text-dim)]">{timeSpent}</span>
+      </div>
 
-export default function Card(props: {title: string, timeSpent: string, caption: string, bullets: string[]}) {
-    const title = props.title
-    const timeSpent = props.timeSpent
-    const caption = props.caption
-    const bullets = props.bullets
+      <p className="my-3 text-sm text-[var(--terminal-text-muted)]">{caption}</p>
 
-    const redacted = title === "Investment Management Firm"
-    
+      <ul className="m-0 pl-5 text-sm text-[var(--terminal-text-body)] space-y-2">
+        {bullets.map((point) => (
+          <li key={point}>{point}</li>
+        ))}
+      </ul>
 
-    return (
-        <section
-      id="experience1"
-      className="group relative z-10 w-11/12 md:w-1/2 m-auto 
-                p-6 md:p-8 bg-white/30 backdrop-blur-md rounded-2xl 
-                border border-white/20 shadow-md 
-                transition-all duration-300 ease-in-out 
-                hover:-translate-y-2 hover:shadow-xl hover:shadow-indigo-200/50"
-    >
-      <div
-        className="absolute -inset-[1px] rounded-2xl bg-gradient-to-r 
-                  from-indigo-400/20 via-pink-400/20 to-purple-400/20 
-                  opacity-0 group-hover:opacity-100 transition duration-500 blur-sm"
-      ></div>
-
-      <article className="relative">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-center">
-          <h3 className="text-2xl font-semibold text-gray-800 mb-2 md:mb-0">
-            {title}
-            {redacted && <span className="text-gray-500">*</span>}
-          </h3>
-          <p className="text-gray-600 text-sm md:text-base">{timeSpent}</p>
-        </div>
-
-        <p className="text-gray-700 mt-3">
-          {caption}
-        </p>
-
-        <ul className="list-disc list-inside text-gray-600 mt-4 space-y-2 marker:text-indigo-400">
-          {bullets.map(point => (
-            <li>{point}</li>
-          ))}
-        </ul>
-        {redacted &&
-        <p className="text-sm text-gray-500 mt-4 italic">
-          * Name redacted for compliance reasons.
-        </p>}
-      </article>
-    </section>
-    )
+      {note && (
+        <p className="text-xs italic text-[var(--terminal-text-dimmer)] mt-4">{note}</p>
+      )}
+    </div>
+  );
 }

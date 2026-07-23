@@ -4,13 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['DM Sans', 'sans-serif'],
-      },
-      backgroundImage: {
-        howl: "url('/src/assets/howlsbackground.gif')",
+        mono: ['JetBrains Mono', 'monospace'],
       },
     },
   },
   plugins: [],
 };
-
