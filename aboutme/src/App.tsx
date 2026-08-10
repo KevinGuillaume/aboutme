@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedin, FaXTwitter, FaFileLines } from "react-icons/fa6";
 import Card from './components/Card'
 
-const skills = ["JavaScript", "TypeScript", "React", "Node.js", "MySQL", "Postgres", "NoSQL (MongoDB)", "Asana", "Tailwind", "Bootstrap", "MaterialUI", "FastAPI", "Gunicorn"]
+const skills = ["JavaScript", "TypeScript", "React", "Node.js", "MySQL", "PostgreSQL", "NoSQL (MongoDB)", "Asana", "Tailwind", "Bootstrap", "MaterialUI", "FastAPI", "Gunicorn"]
 
 const projects = [
   {
@@ -9,26 +9,26 @@ const projects = [
     link: "https://www.usegardenia.com/",
     linkLabel: "→ view site",
     description: "A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.",
-    tags: ["React", "TypeScript", "Node", "Postgres", "AI", "Prisma", "Stripe"],
+    tags: ["React", "TypeScript", "Node", "PostgreSQL", "AI", "Prisma", "Stripe"],
   },
   {
     title: "Shadow Sports Trader",
     link: "https://github.com/KevinGuillaume/ShadowTrader",
     linkLabel: "→ view code",
     description: "A polymarket aggregator that lets you look at current and upcoming sports games. Shows their odds and additional information. Lets you see players on a team's roster and see how they perform against their opponent.",
-    tags: ["API", "React", "TypeScript", "Python", "Postgres"],
+    tags: ["API", "React", "TypeScript", "Python", "PostgreSQL"],
   },
   {
     title: "Realtime Stocks",
     link: "https://marketalertandwatch.live",
     linkLabel: "→ view site",
     description: "A web app where a trader can watch live stock charts with technical analysis tools, and set custom alerts (\"notify me when X happens\") that fire in real time.",
-    tags: ["React", "TypeScript", "Python", "WebSockets", "Postgres"],
+    tags: ["React", "TypeScript", "Python", "WebSockets", "PostgreSQL"],
   },
   {
     title: "Agents Find Jobs",
     link: "https://agentsfindjobs.vercel.app",
-    linkLabel: "→ visit site",
+    linkLabel: "→ view site",
     description: "A web application meant for agentic payments to handle job searching. Payments are handled through MPP.",
     tags: ["Next.js", "Blockchain", "Tempo", "MPP"],
   },
