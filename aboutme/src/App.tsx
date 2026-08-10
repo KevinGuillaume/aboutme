@@ -6,7 +6,7 @@ const skills = ["JavaScript", "TypeScript", "React", "Node.js", "MySQL", "Postgr
 const projects = [
   {
     title: "Gardenia",
-    link: "https://gardenia-g7p9.onrender.com/",
+    link: "https://www.usegardenia.com/",
     linkLabel: "→ view site",
     description: "A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.",
     tags: ["React", "TypeScript", "Node", "Postgres", "AI", "Prisma", "Stripe"],
@@ -20,8 +20,8 @@ const projects = [
   },
   {
     title: "Realtime Stocks",
-    link: "https://github.com/KevinGuillaume/RealtimeStocks",
-    linkLabel: "→ view code",
+    link: "https://marketalertandwatch.live",
+    linkLabel: "→ view site",
     description: "A web app where a trader can watch live stock charts with technical analysis tools, and set custom alerts (\"notify me when X happens\") that fire in real time.",
     tags: ["React", "TypeScript", "Python", "WebSockets", "Postgres"],
   },
