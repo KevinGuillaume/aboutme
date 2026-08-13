@@ -2,10 +2,100 @@ import { useEffect, useRef, useState, type TouchEvent } from 'react'
 
 const SWIPE_THRESHOLD = 50
 
-const BASE_BOX_WIDTH = 270
-const BASE_BOX_HEIGHT = 240
-const BASE_OFFSET = 260
+const BASE_BOX_WIDTH = 220
+const BASE_BOX_HEIGHT = 190
+const BASE_OFFSET = 210
 const BASE_VIEWPORT = 700
+
+const skillCategories = [
+  {
+    category: 'Languages',
+    skills: ['JavaScript', 'TypeScript', 'Python', 'HTML/CSS'],
+  },
+  {
+    category: 'Frontend',
+    skills: ['React', 'Tailwind', 'Bootstrap', 'MaterialUI', 'Vite'],
+  },
+  {
+    category: 'Backend',
+    skills: ['Node.js', 'FastAPI', 'Gunicorn', 'MySQL', 'PostgreSQL', 'NoSQL (MongoDB)'],
+  },
+  {
+    category: 'Tools',
+    skills: ['Asana', 'Claude', 'Git'],
+  },
+]
+
+const experience = [
+  {
+    title: 'Investment Management Firm',
+    timeSpent: 'May 2023 — Present',
+    caption: 'Created both internal and external facing products that make work easier.',
+    bullets: [
+      'Built investor portfolio management application with complementary administrative platforms.',
+      'Developed a secure authentication system using Python and JWTs.',
+      'Improved data retrieval performance by building optimized REST APIs.',
+      'Developed an internal MCP server to connect with external AI Agents',
+    ],
+    note: '* Name redacted for compliance reasons.',
+  },
+  {
+    title: 'RedMane Technology LLC.',
+    timeSpent: 'July 2022 — May 2023',
+    caption:
+      'Built applications with the State of Missouri to provide citizens access to financial aid programs.',
+    bullets: [
+      'Implemented user application process.',
+      'Created sign-in and sign-up features.',
+      'Maintained and improved existing Java applications.',
+    ],
+  },
+  {
+    title: 'HBR Consulting',
+    timeSpent: 'August 2021 — July 2022',
+    caption: 'Full-stack intern where I increased overall employee collaboration and connection.',
+    bullets: [
+      'Created a front-facing database to help employees connect with experts in specific areas.',
+      'Presented technical ideas to management to get the product approved.',
+      'Led data collection and importing of employee skills and assets.',
+    ],
+  },
+]
+
+const projects = [
+  {
+    title: 'Gardenia',
+    link: 'https://www.usegardenia.com/',
+    linkLabel: '→ view site',
+    description:
+      'A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.',
+    tags: ['React', 'TypeScript', 'Node', 'PostgreSQL', 'AI', 'Prisma', 'Stripe'],
+  },
+  {
+    title: 'Shadow Sports Trader',
+    link: 'https://github.com/KevinGuillaume/ShadowTrader',
+    linkLabel: '→ view code',
+    description:
+      "A polymarket aggregator that lets you look at current and upcoming sports games. Shows their odds and additional information. Lets you see players on a team's roster and see how they perform against their opponent.",
+    tags: ['API', 'React', 'TypeScript', 'Python', 'PostgreSQL'],
+  },
+  {
+    title: 'Realtime Stocks',
+    link: 'https://marketalertandwatch.live',
+    linkLabel: '→ view site',
+    description:
+      'A web app where a trader can watch live stock charts with technical analysis tools, and set custom alerts ("notify me when X happens") that fire in real time.',
+    tags: ['React', 'TypeScript', 'Python', 'WebSockets', 'PostgreSQL'],
+  },
+  {
+    title: 'Agents Find Jobs',
+    link: 'https://agentsfindjobs.vercel.app',
+    linkLabel: '→ view site',
+    description:
+      'A web application meant for agentic payments to handle job searching. Payments are handled through MPP.',
+    tags: ['Next.js', 'Blockchain', 'Tempo', 'MPP'],
+  },
+]
 
 function useResponsiveScale() {
   const [scale, setScale] = useState(1)
@@ -28,38 +118,63 @@ const slides = [
     body: 'Placeholder content for the first slide.',
     content: 'This is the detail content for Box One.',
     bg: '/ff7.jpeg',
+    font: "'Cinzel Decorative', serif",
+    titlePosition: 'top-center',
   },
   {
     title: 'Experience',
     body: 'Placeholder content for the second slide.',
     content: 'This is the detail content for Box Two.',
     bg: '/totk.jpg',
+    font: "'MedievalSharp', cursive",
+    titlePosition: 'center-left',
   },
   {
     title: 'Projects',
     body: 'Placeholder content for the third slide.',
     content: 'This is the detail content for Box Three.',
     bg: '/silksong.jpg',
+    font: "'Trajan Pro', 'Trajan Pro 3', Cinzel, serif",
+    titlePosition: 'center',
   },
   {
     title: 'Skills',
     body: 'Placeholder content for the fourth slide.',
     content: 'This is the detail content for Box Four.',
     bg: '/elden.jpg',
+    font: "'Mantinia', 'Mantinia Regular', Cinzel, serif",
+    titlePosition: 'top-center',
+    titleSize: 34,
   },
-  {
-    title: 'Reading',
-    body: 'Placeholder content for the fifth slide.',
-    content: 'This is the detail content for Box Five.',
-    bg: '/gow.jpeg',
-  },
-  {
-    title: 'Music',
-    body: 'Placeholder content for the sixth slide.',
-    content: 'This is the detail content for Box Six.',
-    bg: '/batman.jpg',
-  },
-]
+  // {
+  //   title: 'Reading',
+  //   body: 'Placeholder content for the fifth slide.',
+  //   content: 'This is the detail content for Box Five.',
+  //   bg: '/gow.jpeg',
+  //   font: "'Bebas Neue', sans-serif",
+  //   titlePosition: 'bottom-center',
+  // },
+  // {
+  //   title: 'Music',
+  //   body: 'Placeholder content for the sixth slide.',
+  //   content: 'This is the detail content for Box Six.',
+  //   bg: '/batman.jpg',
+  //   font: "'Anton', sans-serif",
+  //   titlePosition: 'top-right',
+  // },
+] as const
+
+const TITLE_POSITION_CLASSES: Record<string, string> = {
+  'top-left': 'items-start justify-start text-left',
+  'top-center': 'items-start justify-center text-center',
+  'top-right': 'items-start justify-end text-right',
+  center: 'items-center justify-center text-center',
+  'center-left': 'items-center justify-start text-left',
+  'center-right': 'items-center justify-end text-right',
+  'bottom-left': 'items-end justify-start text-left',
+  'bottom-center': 'items-end justify-center text-center',
+  'bottom-right': 'items-end justify-end text-right',
+}
 
 function Background({ index }: { index: number }) {
   return (
@@ -120,7 +235,7 @@ function Carousel({
   return (
     <div className="w-full my-2 px-6">
       <div
-        className="relative h-80 flex items-center justify-start [perspective:1000px]"
+        className="relative h-60 flex items-center justify-start [perspective:1000px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -133,7 +248,7 @@ function Carousel({
               key={slide.title}
               type="button"
               onClick={() => onSelect(i)}
-              className="absolute overflow-hidden rounded-lg border border-[var(--border)] bg-cover bg-center p-4 text-left transition-all duration-300 ease-in-out"
+              className="absolute overflow-hidden rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out"
               style={{
                 width: BASE_BOX_WIDTH * scale,
                 height: BASE_BOX_HEIGHT * scale,
@@ -147,9 +262,19 @@ function Carousel({
               }}
             >
               <div className="absolute inset-0 bg-black/40" />
-              <div className="relative">
-                <h2 style={{ color: 'white' }}>{slide.title}</h2>
-                <p className="text-white">{slide.body}</p>
+              <div
+                className={`absolute inset-0 flex p-4 ${TITLE_POSITION_CLASSES[slide.titlePosition]}`}
+              >
+                <h2
+                  style={{
+                    color: 'white',
+                    fontFamily: slide.font,
+                    fontWeight: 700,
+                    fontSize: 'titleSize' in slide ? slide.titleSize : undefined,
+                  }}
+                >
+                  {slide.title}
+                </h2>
               </div>
             </button>
           )
@@ -188,7 +313,7 @@ function Clock() {
   }, [])
 
   return (
-    <span className="text-base font-bold text-white">
+    <span className="text-base text-white">
       {now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
     </span>
   )
@@ -210,6 +335,14 @@ function XIcon() {
   )
 }
 
+function EmailIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+      <path d="M2 4h20a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm18.4 2H3.6l8.4 6.6L20.4 6ZM3 7.4V18h18V7.4l-9 7.1-9-7.1Z" />
+    </svg>
+  )
+}
+
 function LinkedinIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -225,7 +358,7 @@ function App() {
     <>
       <Background index={index} />
 
-      <header className="flex items-center justify-between px-6 py-4">
+      <header className="relative flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <div
             className="relative h-10 w-10 rounded-full border-2 border-blue-500 bg-[var(--code-bg)] bg-cover bg-center"
@@ -234,6 +367,9 @@ function App() {
             <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
           </div>
           <span className="font-medium text-white">Kevin Guillaume</span>
+        </div>
+
+        <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-4 rounded-full border border-white/20 bg-black/10 px-5 py-2.5 backdrop-blur-md">
           <a href="https://github.com/KevinGuillaume" target="_blank" rel="noopener noreferrer">
             <GithubIcon />
           </a>
@@ -242,6 +378,9 @@ function App() {
           </a>
           <a href="https://x.com/KevinG11_?lang=en" target="_blank" rel="noopener noreferrer">
             <XIcon />
+          </a>
+          <a href="mailto:keving3492@gmail.com">
+            <EmailIcon />
           </a>
         </div>
 
@@ -256,16 +395,138 @@ function App() {
       <main className="text-left px-8">
         <div key={index} className="animate-slide-up">
           <h2 style={{ color: 'white', fontSize: 32 }}>{slides[index].title}</h2>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="min-h-64 rounded-lg border border-white/20 bg-white/10 backdrop-blur-md"
-              />
-            ))}
-          </div>
+          {index === 0 && (
+            <>
+              <div className="mt-6 flex max-w-5xl flex-col gap-4 md:flex-row">
+                <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
+                  <div className="text-sm text-white/60">Name</div>
+                  <div className="text-white/90">Kevin Guillaume</div>
+                </div>
+                <div className="flex-1 rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md">
+                  <p className="text-white/90">
+                    I'm a software engineer passionate about exploring technology and its
+                    real-world applications. I focus on building high-performance applications
+                    that users enjoy, blending practical innovation with seamless user
+                    experiences.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
+                  <div className="text-sm text-white/60">Hobbies</div>
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {['Basketball', 'Jiu Jitsu', 'Gaming', 'Coding'].map((hobby) => (
+                      <div key={hobby} className="text-white/90">
+                        {hobby}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+
+          {index === 1 && (
+            <div className="mt-6 flex flex-col gap-4">
+              {experience.map((job) => (
+                <div
+                  key={job.title}
+                  className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="m-0 text-lg text-white">
+                      {job.title}
+                      {job.note && <span className="text-white/60">*</span>}
+                    </h3>
+                    <span className="text-[13px] text-white/60">{job.timeSpent}</span>
+                  </div>
+                  <p className="my-3 pl-4 text-sm text-white/80">{job.caption}</p>
+                  <div className="flex flex-col gap-2 pl-4">
+                    {job.bullets.map((point) => (
+                      <div key={point} className="text-sm text-white/90">
+                        {point}
+                      </div>
+                    ))}
+                  </div>
+                  {job.note && (
+                    <p className="mt-4 pl-4 text-xs italic text-white/50">{job.note}</p>
+                  )}
+                </div>
+              ))}
+            </div>
+          )}
+
+          {index === 2 && (
+            <div className="mt-6 flex flex-col gap-4">
+              {projects.map((project) => (
+                <div
+                  key={project.title}
+                  className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="m-0 text-lg text-white">{project.title}</h3>
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[13px] text-white/70 hover:text-white"
+                      >
+                        {project.linkLabel}
+                      </a>
+                    )}
+                  </div>
+                  <p className="mt-3 text-sm text-white/80">{project.description}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded border border-white/20 px-2.5 py-1 text-[12px] text-white/70"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {index === 3 && (
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {skillCategories.map((group) => (
+                <div
+                  key={group.category}
+                  className="rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-md"
+                >
+                  <div className="text-sm text-white/60">{group.category}</div>
+                  <div className="mt-2 flex flex-col gap-1.5">
+                    {group.skills.map((skill) => (
+                      <div key={skill} className="text-white/90">
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {(index === 4 || index === 5) && (
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {[0, 1, 2].map((i) => (
+                <div
+                  key={i}
+                  className="min-h-64 rounded-lg border border-white/20 bg-black/10 backdrop-blur-md"
+                />
+              ))}
+            </div>
+          )}
         </div>
       </main>
+
+      <footer className="px-8 py-6 text-center text-sm text-white/50">
+        This site's design is inspired by some of the awesome games I've played over the years,
+        as well as the PlayStation 5, each carousel slide styled after one of them.
+      </footer>
     </>
   )
 }
