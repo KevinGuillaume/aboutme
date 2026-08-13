@@ -24,6 +24,10 @@ const skillCategories = [
     category: 'Tools',
     skills: ['Asana', 'Claude', 'Git'],
   },
+  {
+    category: 'Hobbies',
+    skills: ['Basketball', 'Jiu Jitsu', 'Gaming', 'Coding'],
+  },
 ]
 
 const experience = [
@@ -343,6 +347,14 @@ function EmailIcon() {
   )
 }
 
+function ResumeIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+      <path d="M6 2h9l5 5v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1Zm8 1.5V8h4.5L14 3.5ZM8 12h8v1.5H8V12Zm0 3.5h8V17H8v-1.5ZM8 8.5h4V10H8V8.5Z" />
+    </svg>
+  )
+}
+
 function LinkedinIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -382,6 +394,9 @@ function App() {
           <a href="mailto:keving3492@gmail.com">
             <EmailIcon />
           </a>
+          <a href="/KevinResume_2026.pdf" target="_blank" rel="noopener noreferrer">
+            <ResumeIcon />
+          </a>
         </div>
 
         <div className="flex items-center gap-2">
@@ -398,26 +413,27 @@ function App() {
           {index === 0 && (
             <>
               <div className="mt-6 flex max-w-5xl flex-col gap-4 md:flex-row">
-                <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
-                  <div className="text-sm text-white/60">Name</div>
-                  <div className="text-white/90">Kevin Guillaume</div>
-                </div>
                 <div className="flex-1 rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md">
-                  <p className="text-white/90">
-                    I'm a software engineer passionate about exploring technology and its
-                    real-world applications. I focus on building high-performance applications
-                    that users enjoy, blending practical innovation with seamless user
-                    experiences.
+                  <p className="text-lg text-white/90">
+                    I'm a <span className="font-bold text-blue-500">software engineer</span>{' '}
+                    passionate about exploring technology and its real-world applications. I focus
+                    on building high-performance applications that users enjoy, blending practical
+                    innovation with seamless user experiences.
                   </p>
                 </div>
                 <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
-                  <div className="text-sm text-white/60">Hobbies</div>
-                  <div className="mt-2 flex flex-col gap-1.5">
-                    {['Basketball', 'Jiu Jitsu', 'Gaming', 'Coding'].map((hobby) => (
-                      <div key={hobby} className="text-white/90">
-                        {hobby}
-                      </div>
-                    ))}
+                  <div className="text-sm text-white/60">Interests</div>
+                  <div className="mt-2 flex flex-wrap gap-1.5">
+                    {['Agents', 'Low Level Python', 'Multi processing', 'Optimizations'].map(
+                      (interest) => (
+                        <span
+                          key={interest}
+                          className="rounded-full border border-white/20 px-3 py-1 text-xs text-white/90"
+                        >
+                          {interest}
+                        </span>
+                      ),
+                    )}
                   </div>
                 </div>
               </div>
