@@ -233,7 +233,7 @@ function Carousel({
   }
 
   return (
-    <div className="w-full my-2 px-6">
+    <div className="w-full my-2 overflow-x-hidden px-6">
       <div
         className="relative h-60 flex items-center justify-start [perspective:1000px]"
         onTouchStart={handleTouchStart}
@@ -366,7 +366,7 @@ function App() {
           >
             <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
           </div>
-          <span className="font-medium text-white">Kevin Guillaume</span>
+          <span className="hidden font-medium text-white sm:inline">Kevin Guillaume</span>
         </div>
 
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-4 rounded-full border border-white/20 bg-black/10 px-5 py-2.5 backdrop-blur-md">
