@@ -17,12 +17,18 @@ const skillCategories = [
     skills: ['React', 'Tailwind', 'Bootstrap', 'MaterialUI', 'Vite'],
   },
   {
-    category: 'Backend',
-    skills: ['Node.js', 'FastAPI', 'Gunicorn', 'MySQL', 'PostgreSQL', 'NoSQL (MongoDB)'],
-  },
-  {
-    category: 'Tools',
-    skills: ['Asana', 'Claude', 'Git'],
+    category: 'Backend + Tools',
+    skills: [
+      'Node.js',
+      'FastAPI',
+      'Gunicorn',
+      'MySQL',
+      'PostgreSQL',
+      'NoSQL (MongoDB)',
+      'Asana',
+      'Claude',
+      'Git',
+    ],
   },
   {
     category: 'Hobbies',
@@ -70,7 +76,7 @@ const projects = [
   {
     title: 'Gardenia',
     link: 'https://www.usegardenia.com/',
-    linkLabel: '→ view site',
+    linkLabel: 'view site',
     description:
       'A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.',
     tags: ['React', 'TypeScript', 'Node', 'PostgreSQL', 'AI', 'Prisma', 'Stripe'],
@@ -78,7 +84,7 @@ const projects = [
   {
     title: 'Shadow Sports Trader',
     link: 'https://github.com/KevinGuillaume/ShadowTrader',
-    linkLabel: '→ view code',
+    linkLabel: 'view code',
     description:
       "A polymarket aggregator that lets you look at current and upcoming sports games. Shows their odds and additional information. Lets you see players on a team's roster and see how they perform against their opponent.",
     tags: ['API', 'React', 'TypeScript', 'Python', 'PostgreSQL'],
@@ -86,7 +92,7 @@ const projects = [
   {
     title: 'Realtime Stocks',
     link: 'https://marketalertandwatch.live',
-    linkLabel: '→ view site',
+    linkLabel: 'view site',
     description:
       'A web app where a trader can watch live stock charts with technical analysis tools, and set custom alerts ("notify me when X happens") that fire in real time.',
     tags: ['React', 'TypeScript', 'Python', 'WebSockets', 'PostgreSQL'],
@@ -94,7 +100,7 @@ const projects = [
   {
     title: 'Agents Find Jobs',
     link: 'https://agentsfindjobs.vercel.app',
-    linkLabel: '→ view site',
+    linkLabel: 'view site',
     description:
       'A web application meant for agentic payments to handle job searching. Payments are handled through MPP.',
     tags: ['Next.js', 'Blockchain', 'Tempo', 'MPP'],
@@ -355,6 +361,173 @@ function ResumeIcon() {
   )
 }
 
+function SparkleIcon({ className }: { className?: string }) {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M12 2l1.8 5.9L20 10l-6.2 2.1L12 18l-1.8-5.9L4 10l6.2-2.1L12 2Z" />
+    </svg>
+  )
+}
+
+function BriefcaseIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="7" width="20" height="14" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+      <path d="M2 12h20" />
+    </svg>
+  )
+}
+
+function CalendarIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="3" y="4" width="18" height="18" rx="2" />
+      <path d="M16 2v4M8 2v4M3 10h18" />
+    </svg>
+  )
+}
+
+function FolderIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z" />
+    </svg>
+  )
+}
+
+function ExternalLinkIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <path d="M15 3h6v6M10 14 21 3" />
+    </svg>
+  )
+}
+
+function CodeIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="m8 6-6 6 6 6M16 6l6 6-6 6" />
+    </svg>
+  )
+}
+
+function LayoutIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 9h18M9 21V9" />
+    </svg>
+  )
+}
+
+function ServerIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <rect x="2" y="3" width="20" height="7" rx="1.5" />
+      <rect x="2" y="14" width="20" height="7" rx="1.5" />
+      <path d="M6 6.5h.01M6 17.5h.01" />
+    </svg>
+  )
+}
+
+function GamepadIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+    >
+      <path d="M6 12h4m-2-2v4m5-3h.01M17 13h.01" />
+      <path d="M17.5 6h-11A4.5 4.5 0 0 0 2 10.5v3A4.5 4.5 0 0 0 6.5 18h.5l2-2h6l2 2h.5a4.5 4.5 0 0 0 4.5-4.5v-3A4.5 4.5 0 0 0 17.5 6Z" />
+    </svg>
+  )
+}
+
+const SKILL_CATEGORY_ICONS: Record<string, (props: { className?: string }) => React.ReactElement> = {
+  Languages: CodeIcon,
+  Frontend: LayoutIcon,
+  'Backend + Tools': ServerIcon,
+  Hobbies: GamepadIcon,
+}
+
 function LinkedinIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -422,7 +595,10 @@ function App() {
                   </p>
                 </div>
                 <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
-                  <div className="text-sm text-white/60">Interests</div>
+                  <div className="flex items-center gap-1.5 text-sm text-white/60">
+                    <SparkleIcon />
+                    Interests
+                  </div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {['Agents', 'Low Level Python', 'Multi processing', 'Optimizations'].map(
                       (interest) => (
@@ -447,12 +623,16 @@ function App() {
                   key={job.title}
                   className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
                 >
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="m-0 text-lg text-white">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="m-0 flex items-center gap-2 text-lg text-white">
+                      <BriefcaseIcon className="text-white/50" />
                       {job.title}
                       {job.note && <span className="text-white/60">*</span>}
                     </h3>
-                    <span className="text-[13px] text-white/60">{job.timeSpent}</span>
+                    <span className="flex items-center gap-1.5 text-[13px] text-white/60">
+                      <CalendarIcon />
+                      {job.timeSpent}
+                    </span>
                   </div>
                   <p className="my-3 pl-4 text-sm text-white/80">{job.caption}</p>
                   <div className="flex flex-col gap-2 pl-4">
@@ -477,15 +657,19 @@ function App() {
                   key={project.title}
                   className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
                 >
-                  <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <h3 className="m-0 text-lg text-white">{project.title}</h3>
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <h3 className="m-0 flex items-center gap-2 text-lg text-white">
+                      <FolderIcon className="text-white/50" />
+                      {project.title}
+                    </h3>
                     {project.link && (
                       <a
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[13px] text-white/70 hover:text-white"
+                        className="flex items-center gap-1.5 text-[13px] text-white/70 hover:text-white"
                       >
+                        <ExternalLinkIcon />
                         {project.linkLabel}
                       </a>
                     )}
@@ -508,12 +692,17 @@ function App() {
 
           {index === 3 && (
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {skillCategories.map((group) => (
+              {skillCategories.map((group) => {
+                const CategoryIcon = SKILL_CATEGORY_ICONS[group.category]
+                return (
                 <div
                   key={group.category}
                   className="rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-md"
                 >
-                  <div className="text-sm text-white/60">{group.category}</div>
+                  <div className="flex items-center gap-1.5 text-sm text-white/60">
+                    {CategoryIcon && <CategoryIcon />}
+                    {group.category}
+                  </div>
                   <div className="mt-2 flex flex-col gap-1.5">
                     {group.skills.map((skill) => (
                       <div key={skill} className="text-white/90">
@@ -522,7 +711,8 @@ function App() {
                     ))}
                   </div>
                 </div>
-              ))}
+                )
+              })}
             </div>
           )}
 
