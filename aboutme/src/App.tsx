@@ -657,11 +657,11 @@ function App() {
           )}
 
           {index === 1 && (
-            <div className="mt-6 flex flex-col gap-4">
+            <div className="mt-6 flex flex-col flex-wrap gap-4 sm:flex-row">
               {experience.map((job) => (
                 <div
                   key={job.title}
-                  className="rounded-lg border border-white/20 bg-[#232222] p-6"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-6 sm:min-w-[280px] sm:flex-1"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="m-0 flex items-center gap-2 text-lg text-white">
@@ -691,11 +691,11 @@ function App() {
           )}
 
           {index === 2 && (
-            <div className="mt-6 flex flex-col gap-4">
+            <div className="mt-6 flex flex-col flex-wrap gap-4 sm:flex-row">
               {projects.map((project) => (
                 <div
                   key={project.title}
-                  className="rounded-lg border border-white/20 bg-[#232222] p-6"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-6 sm:min-w-[280px] sm:flex-1"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="m-0 flex items-center gap-2 text-lg text-white">
