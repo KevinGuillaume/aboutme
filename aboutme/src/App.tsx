@@ -37,11 +37,11 @@ const skillCategories = [
 
 const experience = [
   {
-    title: 'Investment Management Firm',
+    title: 'Hedge Fund',
     role: 'Software Engineer',
     timeSpent: 'May 2023 — Present',
     caption:
-      'Building tools for our quantitative team, including model development, dashboards, and data pipelines, to support traders. While also building products for our investors and internal departments to faciliate different department needs.',
+      'Building tools, including model development, dashboards, and data pipelines, to support traders. While also building products for our investors and internal departments to faciliate different needs.',
     note: '* Name redacted for compliance reasons.',
   },
   {
@@ -156,6 +156,31 @@ const TITLE_POSITION_CLASSES: Record<string, string> = {
   'bottom-left': 'items-end justify-start text-left',
   'bottom-center': 'items-end justify-center text-center',
   'bottom-right': 'items-end justify-end text-right',
+}
+
+function ExperienceCard({ job }: { job: (typeof experience)[number] }) {
+  return (
+    <div className="rounded-lg border border-white/20 bg-[#232222] p-6">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <h3 className="m-0 flex items-center gap-2 text-lg text-white">
+          <BriefcaseIcon className="text-white/50" />
+          {job.title}
+          {'note' in job && job.note && <span className="text-white/60">*</span>}
+        </h3>
+        <span className="flex items-center gap-1.5 text-[13px] text-white/60">
+          <CalendarIcon />
+          {job.timeSpent}
+        </span>
+      </div>
+      <span className="mb-2 mt-2 inline-block rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">
+        {job.role}
+      </span>
+      <p className="my-3 pl-4 text-sm text-white/90">{job.caption}</p>
+      {'note' in job && job.note && (
+        <p className="mt-4 pl-4 text-xs italic text-white/50">{job.note}</p>
+      )}
+    </div>
+  )
 }
 
 function Background({ index }: { index: number }) {
@@ -645,33 +670,43 @@ function App() {
           )}
 
           {index === 1 && (
-            <div className="mt-6 flex flex-col flex-wrap gap-4 sm:flex-row">
-              {experience.map((job) => (
-                <div
-                  key={job.title}
-                  className="rounded-lg border border-white/20 bg-[#232222] p-6 sm:min-w-[280px] sm:flex-1"
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="m-0 flex items-center gap-2 text-lg text-white">
-                      <BriefcaseIcon className="text-white/50" />
-                      {job.title}
-                      {job.note && <span className="text-white/60">*</span>}
-                    </h3>
-                    <span className="flex items-center gap-1.5 text-[13px] text-white/60">
-                      <CalendarIcon />
-                      {job.timeSpent}
-                    </span>
-                  </div>
-                  <span className="mb-2 mt-2 inline-block rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">
-                    {job.role}
-                  </span>
-                  <p className="my-3 pl-4 text-sm text-white/90">{job.caption}</p>
-                  {job.note && (
-                    <p className="mt-4 pl-4 text-xs italic text-white/50">{job.note}</p>
-                  )}
+            <>
+              <div className="relative mt-6 sm:hidden">
+                <span className="mb-1 block pl-12 text-xs font-semibold uppercase tracking-wide text-white/50">
+                  Now
+                </span>
+                <div className="absolute left-4 top-7 bottom-7 w-0.5 bg-white/20" />
+                <div className="flex flex-col gap-8">
+                  {experience.map((job) => (
+                    <div key={job.title} className="relative pl-12">
+                      <span className="absolute left-[11px] top-1.5 h-3 w-3 rounded-full bg-blue-500" />
+                      <ExperienceCard job={job} />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+                <span className="mt-1 block pl-12 text-xs font-semibold uppercase tracking-wide text-white/50">
+                  Past
+                </span>
+              </div>
+
+              <div className="relative mt-10 hidden sm:block">
+                <span className="absolute -top-6 left-0 text-xs font-semibold uppercase tracking-wide text-white/50">
+                  Now
+                </span>
+                <span className="absolute -top-6 right-0 text-xs font-semibold uppercase tracking-wide text-white/50">
+                  Past
+                </span>
+                <div className="absolute left-0 right-0 top-[13px] h-0.5 bg-white/20" />
+                <div className="flex gap-6">
+                  {experience.map((job) => (
+                    <div key={job.title} className="relative flex-1 pt-10">
+                      <span className="absolute left-1/2 top-2 h-3 w-3 -translate-x-1/2 rounded-full bg-blue-500" />
+                      <ExperienceCard job={job} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </>
           )}
 
           {index === 2 && (
