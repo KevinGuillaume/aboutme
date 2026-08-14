@@ -16,6 +16,10 @@ const skillCategories = [
     skills: ['React', 'Tailwind', 'Bootstrap', 'MaterialUI', 'Vite'],
   },
   {
+    category: 'Hobbies',
+    skills: ['Basketball', 'Jiu Jitsu', 'Gaming', 'Coding'],
+  },
+  {
     category: 'Backend + Tools',
     skills: [
       'Node.js',
@@ -28,10 +32,6 @@ const skillCategories = [
       'Claude',
       'Git',
     ],
-  },
-  {
-    category: 'Hobbies',
-    skills: ['Basketball', 'Jiu Jitsu', 'Gaming', 'Coding'],
   },
 ]
 
@@ -532,6 +532,18 @@ const SKILL_CATEGORY_ICONS: Record<string, (props: { className?: string }) => Re
   Hobbies: GamepadIcon,
 }
 
+const SKILL_CATEGORY_ACCENTS: Record<string, string> = {
+  Languages: 'text-blue-400',
+  Frontend: 'text-fuchsia-400',
+  'Backend + Tools': 'text-emerald-400',
+  Hobbies: 'text-amber-400',
+}
+
+const SKILL_CATEGORY_SPANS: Record<string, string> = {
+  Hobbies: 'col-span-2',
+  'Backend + Tools': 'col-span-2',
+}
+
 function LinkedinIcon() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -750,26 +762,31 @@ function App() {
           )}
 
           {index === 3 && (
-            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
               {skillCategories.map((group) => {
                 const CategoryIcon = SKILL_CATEGORY_ICONS[group.category]
+                const accent = SKILL_CATEGORY_ACCENTS[group.category] ?? 'text-white/60'
+                const span = SKILL_CATEGORY_SPANS[group.category] ?? ''
                 return (
-                <div
-                  key={group.category}
-                  className="rounded-lg border border-white/20 bg-[#232222] p-4"
-                >
-                  <div className="flex items-center gap-1.5 text-sm text-white/60">
-                    {CategoryIcon && <CategoryIcon />}
-                    {group.category}
+                  <div
+                    key={group.category}
+                    className={`rounded-lg border border-white/20 bg-[#232222] p-4 transition-transform duration-200 ease-out hover:-translate-y-1 ${span}`}
+                  >
+                    <div className={`flex items-center gap-1.5 text-sm font-semibold ${accent}`}>
+                      {CategoryIcon && <CategoryIcon />}
+                      {group.category}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-1.5">
+                      {group.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-white/20 bg-white/5 px-2.5 py-1 text-xs text-white/90"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                  <div className="mt-2 flex flex-col gap-1.5">
-                    {group.skills.map((skill) => (
-                      <div key={skill} className="text-white/90">
-                        {skill}
-                      </div>
-                    ))}
-                  </div>
-                </div>
                 )
               })}
             </div>
