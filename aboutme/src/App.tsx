@@ -805,8 +805,8 @@ function App() {
         </div>
       </main>
 
-      <footer className="px-8 py-6 text-center text-sm text-white/50">
-        This site's design is inspired by some of the awesome games I've played over the years,
+      <footer className="px-8 py-3 text-center text-xs text-white/50">
+        My design here is inspired by some of the awesome games I've played over the years,
         as well as the PlayStation 5, each carousel slide styled after one of them.
       </footer>
     </>
