@@ -38,36 +38,24 @@ const skillCategories = [
 const experience = [
   {
     title: 'Investment Management Firm',
+    role: 'Software Engineer',
     timeSpent: 'May 2023 — Present',
-    caption: 'Created both internal and external facing products that make work easier.',
-    bullets: [
-      'Built investor portfolio management application with complementary administrative platforms.',
-      'Developed a secure authentication system using Python and JWTs.',
-      'Improved data retrieval performance by building optimized REST APIs.',
-      'Developed an internal MCP server to connect with external AI Agents',
-    ],
+    caption:
+      'Building tools for our quantitative team, including model development, dashboards, and data pipelines, to support traders. While also building products for our investors and internal departments to faciliate different department needs.',
     note: '* Name redacted for compliance reasons.',
   },
   {
     title: 'RedMane Technology LLC.',
+    role: 'Software Engineer',
     timeSpent: 'July 2022 — May 2023',
     caption:
-      'Built applications with the State of Missouri to provide citizens access to financial aid programs.',
-    bullets: [
-      'Implemented user application process.',
-      'Created sign-in and sign-up features.',
-      'Maintained and improved existing Java applications.',
-    ],
+      'Built applications with the State of Missouri to provide citizens access to financial aid programs, while also empowering government case workers the ability to manage these new and ongoing applications.',
   },
   {
     title: 'HBR Consulting',
+    role: 'Full-Stack Engineer Intern',
     timeSpent: 'August 2021 — July 2022',
     caption: 'Full-stack intern where I increased overall employee collaboration and connection.',
-    bullets: [
-      'Created a front-facing database to help employees connect with experts in specific areas.',
-      'Presented technical ideas to management to get the product approved.',
-      'Led data collection and importing of employee skills and assets.',
-    ],
   },
 ]
 
@@ -77,11 +65,11 @@ const projects = [
     link: 'https://www.usegardenia.com/',
     linkLabel: 'view site',
     description:
-      'A personal project for managing rental properties. Tracking tenants, leases, accounting, and payments in one place.',
-    tags: ['React', 'TypeScript', 'Node', 'PostgreSQL', 'AI', 'Prisma', 'Stripe'],
+      'A application managing rental properties. Tracking tenants, leases, accounting, and payments in one place.',
+    tags: ['React', 'TypeScript', 'Node', 'PostgreSQL', 'AI', 'Twilio', 'Prisma', 'Stripe'],
   },
   {
-    title: 'Shadow Sports Trader',
+    title: 'Sports Trader',
     link: 'https://github.com/KevinGuillaume/ShadowTrader',
     linkLabel: 'view code',
     description:
@@ -599,7 +587,7 @@ function App() {
 
       <Carousel index={index} onSelect={setIndex} />
 
-      <main className="text-left px-8">
+      <main className="min-h-0 flex-1 overflow-y-auto px-8 text-left">
         <div key={index} className="animate-slide-up">
           <h2 style={{ color: 'white', fontSize: 32 }}>{slides[index].title}</h2>
           {index === 0 && (
@@ -674,14 +662,10 @@ function App() {
                       {job.timeSpent}
                     </span>
                   </div>
-                  <p className="my-3 pl-4 text-sm text-white/80">{job.caption}</p>
-                  <div className="flex flex-col gap-2 pl-4">
-                    {job.bullets.map((point) => (
-                      <div key={point} className="text-sm text-white/90">
-                        {point}
-                      </div>
-                    ))}
-                  </div>
+                  <span className="mb-2 mt-2 inline-block rounded-full border border-white/20 px-3 py-1 text-xs text-white/70">
+                    {job.role}
+                  </span>
+                  <p className="my-3 pl-4 text-sm text-white/90">{job.caption}</p>
                   {job.note && (
                     <p className="mt-4 pl-4 text-xs italic text-white/50">{job.note}</p>
                   )}
