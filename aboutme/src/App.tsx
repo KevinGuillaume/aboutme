@@ -5,7 +5,6 @@ const SWIPE_THRESHOLD = 50
 const BASE_BOX_WIDTH = 220
 const BASE_BOX_HEIGHT = 190
 const BASE_OFFSET = 210
-const BASE_VIEWPORT = 700
 
 const skillCategories = [
   {
@@ -107,21 +106,6 @@ const projects = [
   },
 ]
 
-function useResponsiveScale() {
-  const [scale, setScale] = useState(1)
-
-  useEffect(() => {
-    const compute = () => {
-      setScale(Math.min(1, Math.max(0.5, window.innerWidth / BASE_VIEWPORT)))
-    }
-    compute()
-    window.addEventListener('resize', compute)
-    return () => window.removeEventListener('resize', compute)
-  }, [])
-
-  return scale
-}
-
 const slides = [
   {
     title: 'About Me',
@@ -211,7 +195,6 @@ function Carousel({
   index: number
   onSelect: (index: number) => void
 }) {
-  const scale = useResponsiveScale()
   const touchStartX = useRef<number | null>(null)
 
   useEffect(() => {
@@ -260,10 +243,10 @@ function Carousel({
               onClick={() => onSelect(i)}
               className="absolute overflow-hidden rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out"
               style={{
-                width: BASE_BOX_WIDTH * scale,
-                height: BASE_BOX_HEIGHT * scale,
+                width: BASE_BOX_WIDTH,
+                height: BASE_BOX_HEIGHT,
                 backgroundImage: `url(${slide.bg})`,
-                transform: `translateX(${offset * BASE_OFFSET * scale}px) scale(${isActive ? 1 : 0.85})`,
+                transform: `translateX(${offset * BASE_OFFSET}px) scale(${isActive ? 1 : 0.85})`,
                 zIndex: isActive ? 10 : 10 - Math.abs(offset),
                 opacity: isActive ? 1 : 0.6,
                 boxShadow: isActive
@@ -549,7 +532,10 @@ function App() {
             className="relative h-10 w-10 rounded-full border-2 border-blue-500 bg-[var(--code-bg)] bg-cover bg-center"
             style={{ backgroundImage: 'url(/avatar.png)' }}
           >
-            <span className="absolute bottom-0 right-0 h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
+            <span className="absolute bottom-0 right-0 flex h-3 w-3">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+              <span className="relative h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
+            </span>
           </div>
           <span className="hidden font-medium text-white sm:inline">Kevin Guillaume</span>
         </div>
@@ -573,7 +559,9 @@ function App() {
         </div>
 
         <div className="flex items-center gap-2">
-          <WifiIcon />
+          <span className="hidden sm:block">
+            <WifiIcon />
+          </span>
           <Clock />
         </div>
       </header>
