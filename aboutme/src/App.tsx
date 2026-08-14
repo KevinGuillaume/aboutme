@@ -625,7 +625,7 @@ function App() {
                 </div>
               </div>
               <div className="mt-4 flex max-w-5xl flex-col gap-4 md:flex-row">
-                <div className="flex-1 rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md">
+                <div className="flex-1 rounded-lg border border-white/20 bg-[#232222] p-6">
                   <p className="text-lg text-white/90">
                     I'm a <span className="font-bold text-blue-500">software engineer</span>{' '}
                     passionate about exploring technology and its real-world applications. I focus
@@ -634,7 +634,7 @@ function App() {
                     it can be applied to make everyday life easier.
                   </p>
                 </div>
-                <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
+                <div className="rounded-lg border border-white/20 bg-[#232222] p-4 text-left md:w-48">
                   <div className="flex items-center gap-1.5 text-sm text-white/60">
                     <SparkleIcon />
                     Current Interests
@@ -661,7 +661,7 @@ function App() {
               {experience.map((job) => (
                 <div
                   key={job.title}
-                  className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-6"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="m-0 flex items-center gap-2 text-lg text-white">
@@ -695,7 +695,7 @@ function App() {
               {projects.map((project) => (
                 <div
                   key={project.title}
-                  className="rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-6"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="m-0 flex items-center gap-2 text-lg text-white">
@@ -737,7 +737,7 @@ function App() {
                 return (
                 <div
                   key={group.category}
-                  className="rounded-lg border border-white/20 bg-black/10 p-4 backdrop-blur-md"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-4"
                 >
                   <div className="flex items-center gap-1.5 text-sm text-white/60">
                     {CategoryIcon && <CategoryIcon />}
@@ -761,7 +761,7 @@ function App() {
               {[0, 1, 2].map((i) => (
                 <div
                   key={i}
-                  className="min-h-64 rounded-lg border border-white/20 bg-black/10 backdrop-blur-md"
+                  className="min-h-64 rounded-lg border border-white/20 bg-[#232222]"
                 />
               ))}
             </div>
