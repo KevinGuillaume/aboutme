@@ -533,7 +533,7 @@ function App() {
             style={{ backgroundImage: 'url(/avatar.png)' }}
           >
             <span className="absolute bottom-0 right-0 flex h-3 w-3">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+              <span className="animate-pulse-ring absolute inline-flex h-full w-full rounded-full bg-green-500" />
               <span className="relative h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
             </span>
           </div>
@@ -541,19 +541,42 @@ function App() {
         </div>
 
         <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center gap-4 rounded-full border border-white/20 bg-black/10 px-5 py-2.5 backdrop-blur-md">
-          <a href="https://github.com/KevinGuillaume" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/KevinGuillaume"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+          >
             <GithubIcon />
           </a>
-          <a href="https://linkedin.com/in/kevin-guillaume-722544239/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://linkedin.com/in/kevin-guillaume-722544239/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+          >
             <LinkedinIcon />
           </a>
-          <a href="https://x.com/KevinG11_?lang=en" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://x.com/KevinG11_?lang=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+          >
             <XIcon />
           </a>
-          <a href="mailto:keving3492@gmail.com">
+          <a
+            href="mailto:keving3492@gmail.com"
+            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+          >
             <EmailIcon />
           </a>
-          <a href="/KevinResume_2026.pdf" target="_blank" rel="noopener noreferrer">
+          <a
+            href="/KevinResume_2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+          >
             <ResumeIcon />
           </a>
         </div>
