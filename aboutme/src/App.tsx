@@ -624,7 +624,7 @@ function App() {
 
       <Carousel index={index} onSelect={setIndex} />
 
-      <main className="min-h-0 flex-1 overflow-y-auto px-8 text-left">
+      <main className="px-8 text-left sm:min-h-0 sm:flex-1 sm:overflow-y-auto">
         <div key={index} className="animate-slide-up">
           <h2 style={{ color: 'white', fontSize: 32 }}>{slides[index].title}</h2>
           {index === 0 && (
