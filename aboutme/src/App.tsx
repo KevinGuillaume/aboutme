@@ -344,6 +344,14 @@ function ResumeIcon() {
   )
 }
 
+function SpotifyIcon({ className }: { className?: string }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="#1DB954" className={className}>
+      <path d="M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24Zm5.5 17.3a.75.75 0 0 1-1.03.26c-2.82-1.72-6.37-2.11-10.55-1.16a.75.75 0 1 1-.33-1.46c4.58-1.04 8.5-.6 11.65 1.32.36.22.47.68.26 1.04Zm1.47-3.27a.94.94 0 0 1-1.29.31c-3.23-1.99-8.15-2.56-11.97-1.4a.94.94 0 1 1-.55-1.8c4.36-1.32 9.78-.68 13.5 1.6a.94.94 0 0 1 .31 1.29Zm.13-3.4C15.9 8.36 9.98 8.15 6.6 9.18a1.13 1.13 0 1 1-.66-2.16c3.88-1.18 10.42-.94 14.53 1.5a1.13 1.13 0 0 1-1.15 1.94Z" />
+    </svg>
+  )
+}
+
 function SparkleIcon({ className }: { className?: string }) {
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -596,22 +604,43 @@ function App() {
           <h2 style={{ color: 'white', fontSize: 32 }}>{slides[index].title}</h2>
           {index === 0 && (
             <>
-              <div className="mt-6 flex max-w-5xl flex-col gap-4 md:flex-row">
+              <div className="mt-6 flex max-w-5xl flex-col gap-4 sm:flex-row sm:gap-12">
+                <div>
+                  <div className="text-sm text-white/60">Current Role</div>
+                  <div className="mt-1 text-lg text-white/90">Software Engineer</div>
+                </div>
+                <div>
+                  <div className="text-sm text-white/60">Last Listened</div>
+                  <div className="mt-1 flex items-center gap-2 text-lg text-white/90">
+                    <SpotifyIcon />
+                    93 'til Infinity
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm text-white/60">Last Watched</div>
+                  <div className="mt-1 flex items-center gap-2 text-lg text-white/90">
+                    <img src="/filmposter.jpg" alt="The Odyssey poster" className="h-5 w-5 rounded-sm object-cover" />
+                    The Odyssey
+                  </div>
+                </div>
+              </div>
+              <div className="mt-4 flex max-w-5xl flex-col gap-4 md:flex-row">
                 <div className="flex-1 rounded-lg border border-white/20 bg-black/10 p-6 backdrop-blur-md">
                   <p className="text-lg text-white/90">
                     I'm a <span className="font-bold text-blue-500">software engineer</span>{' '}
                     passionate about exploring technology and its real-world applications. I focus
                     on building high-performance applications that users enjoy, blending practical
-                    innovation with seamless user experiences.
+                    innovation with seamless user experiences. I'm especially drawn to AI and how
+                    it can be applied to make everyday life easier.
                   </p>
                 </div>
                 <div className="rounded-lg border border-white/20 bg-black/10 p-4 text-left backdrop-blur-md md:w-48">
                   <div className="flex items-center gap-1.5 text-sm text-white/60">
                     <SparkleIcon />
-                    Interests
+                    Current Interests
                   </div>
                   <div className="mt-2 flex flex-wrap gap-1.5">
-                    {['Agents', 'Low Level Python', 'Multi processing', 'Optimizations'].map(
+                    {['Agents', 'LLMs','Low Level Python', 'Multi processing', 'Optimizations'].map(
                       (interest) => (
                         <span
                           key={interest}
