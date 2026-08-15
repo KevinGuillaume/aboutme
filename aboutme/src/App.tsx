@@ -189,7 +189,7 @@ function Background({ index }: { index: number }) {
       {slides.map((slide, i) => (
         <div
           key={slide.title}
-          className="absolute inset-0 bg-cover bg-center transition-opacity duration-700 ease-in-out"
+          className="absolute inset-0 bg-cover bg-center transition-opacity duration-400 ease-in-out"
           style={{
             backgroundImage: `url(${slide.bg})`,
             opacity: i === index ? 1 : 0,
@@ -805,10 +805,6 @@ function App() {
         </div>
       </main>
 
-      <footer className="px-8 py-3 text-center text-xs text-white/50">
-        My design here is inspired by some of the awesome games I've played over the years,
-        as well as the PlayStation 5, each carousel slide styled after one of them.
-      </footer>
     </>
   )
 }
