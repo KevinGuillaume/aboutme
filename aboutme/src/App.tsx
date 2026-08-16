@@ -208,6 +208,26 @@ function ExperienceCard({ job }: { job: (typeof experience)[number] }) {
   )
 }
 
+function LoadingScreen({ loading }: { loading: boolean }) {
+  return (
+    <div
+      className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-[var(--bg)] transition-opacity duration-700 ease-in-out ${
+        loading ? 'opacity-100' : 'pointer-events-none opacity-0'
+      }`}
+    >
+      <span
+        className="animate-kg-intro text-white"
+        style={{ fontFamily: "'Anton', sans-serif", fontSize: 96, letterSpacing: 4 }}
+      >
+        KG
+      </span>
+      <div className="mt-16 h-0.5 w-32 overflow-hidden rounded-full bg-white/10">
+        <div className="animate-loading-bar h-full bg-blue-500" />
+      </div>
+    </div>
+  )
+}
+
 function Background({ index }: { index: number }) {
   return (
     <div className="fixed inset-0 -z-10">
@@ -591,13 +611,21 @@ function LinkedinIcon() {
 function App() {
   const [index, setIndex] = useState(0)
   const [played, setPlayed] = useState(false)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     setPlayed(false)
   }, [index])
 
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1400)
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <>
+      <LoadingScreen loading={loading} />
+
       <Background index={index} />
 
       <header className="relative flex items-center justify-between px-6 py-4">
@@ -611,7 +639,7 @@ function App() {
               <span className="relative h-3 w-3 rounded-full border-2 border-[var(--bg)] bg-green-500" />
             </span>
           </div>
-          <span className="hidden font-medium text-white sm:inline">Kevin Guillaume</span>
+          <span className="hidden font-medium text-white sm:inline">kevinguillaume</span>
         </div>
 
         <div
@@ -668,7 +696,7 @@ function App() {
       <Carousel index={index} onSelect={setIndex} played={played} />
 
       <main
-        className={`min-h-0 flex-1 overflow-y-auto px-8 text-left ${played ? '-mt-[90px] rounded-lg bg-[#232222] pt-[90px]' : ''}`}
+        className={`min-h-0 flex-1 overflow-y-auto px-8 text-left transition-all duration-300 ease-in-out ${played ? '-mt-[90px] rounded-lg bg-[#232222] pt-[90px]' : ''}`}
       >
         <div key={index} className="animate-slide-up">
           <h2 style={{ color: 'white', fontSize: 32, margin: '16px 0' }}>{slides[index].title}</h2>
@@ -764,7 +792,7 @@ function App() {
               <div className="mt-4 flex max-w-5xl flex-col gap-4 md:flex-row">
                 <div className="flex-1 rounded-lg border border-white/20 bg-[#232222] p-6">
                   <p className="text-lg text-white/90">
-                    I'm a <span className="font-bold text-blue-500">software engineer</span>{' '}
+                    Hi, I'm Kevin Guillaume! I'm a <span className="font-bold text-blue-500">software engineer</span>{' '}
                     passionate about exploring technology and its real-world applications. I focus
                     on building high-performance applications that users enjoy, blending practical
                     innovation with seamless user experiences. I'm especially drawn to AI and how
