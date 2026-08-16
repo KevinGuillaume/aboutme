@@ -94,6 +94,16 @@ const projects = [
   },
 ]
 
+const PRELOAD_IMAGES = [
+  '/ff7.jpeg',
+  '/totk.jpg',
+  '/silksong.jpg',
+  '/elden.jpg',
+  '/avatar.png',
+  '/pythonbook.jpg',
+  '/filmposter.jpg',
+]
+
 const slides = [
   {
     title: 'About Me',
@@ -618,8 +628,28 @@ function App() {
   }, [index])
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1400)
-    return () => clearTimeout(timer)
+    let cancelled = false
+
+    const minDelay = new Promise((resolve) => setTimeout(resolve, 800))
+    const imagesLoaded = Promise.all(
+      PRELOAD_IMAGES.map(
+        (src) =>
+          new Promise<void>((resolve) => {
+            const img = new Image()
+            img.src = src
+            img.onload = () => resolve()
+            img.onerror = () => resolve()
+          }),
+      ),
+    )
+
+    Promise.all([minDelay, imagesLoaded]).then(() => {
+      if (!cancelled) setLoading(false)
+    })
+
+    return () => {
+      cancelled = true
+    }
   }, [])
 
   return (
