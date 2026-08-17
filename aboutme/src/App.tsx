@@ -92,6 +92,14 @@ const projects = [
       'A web application meant for agentic payments to handle job searching. Payments are handled through MPP.',
     tags: ['Next.js', 'Blockchain', 'Tempo', 'MPP'],
   },
+  {
+    title: 'Training Wheels',
+    link: 'https://www.usetrainingwheels.xyz/',
+    linkLabel: 'view site',
+    description:
+      'A webpage where I document different AI concepts and visualize them, tracking a lot of my AI learning process.',
+    tags: ['AI', 'Education', 'Visualization'],
+  },
 ]
 
 const PRELOAD_IMAGES = [
@@ -826,7 +834,17 @@ function App() {
                     passionate about exploring technology and its real-world applications. I focus
                     on building high-performance applications that users enjoy, blending practical
                     innovation with seamless user experiences. I'm especially drawn to AI and how
-                    it can be applied to make everyday life easier.
+                    it can be applied to make everyday life easier. I've been documenting a lot of
+                    my AI process on my app{' '}
+                    <a
+                      href="https://www.usetrainingwheels.xyz/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-bold text-blue-500 underline-offset-2 hover:underline"
+                    >
+                      Training Wheels
+                    </a>
+                    .
                   </p>
                 </div>
                 <div className="rounded-lg border border-white/20 bg-[#232222] p-4 text-left md:w-48">
