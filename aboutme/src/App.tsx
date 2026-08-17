@@ -221,7 +221,7 @@ function ExperienceCard({ job }: { job: (typeof experience)[number] }) {
 function LoadingScreen({ loading }: { loading: boolean }) {
   return (
     <div
-      className={`fixed top-0 left-0 z-50 flex h-[100lvh] w-screen flex-col items-center justify-center bg-[var(--bg)] transition-opacity duration-700 ease-in-out ${
+      className={`fixed top-0 left-0 z-50 flex h-[var(--app-height,100lvh)] w-screen flex-col items-center justify-center bg-[var(--bg)] transition-opacity duration-700 ease-in-out ${
         loading ? 'opacity-100' : 'pointer-events-none opacity-0'
       }`}
     >
@@ -240,7 +240,7 @@ function LoadingScreen({ loading }: { loading: boolean }) {
 
 function Background({ index }: { index: number }) {
   return (
-    <div className="fixed top-0 left-0 -z-10 h-[100lvh] w-screen">
+    <div className="fixed top-0 left-0 -z-10 h-[var(--app-height,100lvh)] w-screen">
       {slides.map((slide, i) => (
         <div
           key={slide.title}
