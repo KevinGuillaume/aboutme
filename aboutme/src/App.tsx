@@ -248,7 +248,7 @@ function LoadingScreen({ loading }: { loading: boolean }) {
 
 function Background({ index }: { index: number }) {
   return (
-    <div className="fixed top-0 left-0 -z-10 h-[var(--app-height,100lvh)] w-screen">
+    <div className="absolute inset-0 -z-10">
       {slides.map((slide, i) => (
         <div
           key={slide.title}
