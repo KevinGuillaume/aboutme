@@ -195,7 +195,7 @@ function BackIcon() {
 
 function ExperienceCard({ job }: { job: (typeof experience)[number] }) {
   return (
-    <div className="rounded-lg border border-white/20 bg-[#232222] p-6">
+    <div className="rounded-lg border border-white/20 bg-[#232222] p-6 transition-transform duration-200 ease-out hover:-translate-y-1">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <h3 className="m-0 flex items-center gap-2 text-lg text-white">
           <BriefcaseIcon className="text-white/50" />
@@ -314,7 +314,7 @@ function Carousel({
               key={slide.title}
               type="button"
               onClick={() => onSelect(i)}
-              className={`absolute rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out ${played && !isActive ? 'pointer-events-none' : ''}`}
+              className={`absolute rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${played && !isActive ? 'pointer-events-none' : ''}`}
               style={{
                 width: isHero ? 240 : BASE_BOX_WIDTH,
                 height: isHero ? 240 : BASE_BOX_HEIGHT,
@@ -661,7 +661,7 @@ function App() {
       <header className="relative flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <div
-            className="relative h-10 w-10 rounded-full border-2 border-blue-500 bg-[var(--code-bg)] bg-cover bg-center"
+            className="relative h-10 w-10 rounded-full border-2 border-blue-500 bg-[var(--code-bg)] bg-cover bg-center transition-transform duration-200 ease-out hover:scale-110"
             style={{ backgroundImage: 'url(/avatar.png)' }}
           >
             <span className="absolute bottom-0 right-0 flex h-3 w-3">
@@ -679,7 +679,7 @@ function App() {
             href="https://github.com/KevinGuillaume"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+            className="rounded-full transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <GithubIcon />
           </a>
@@ -687,7 +687,7 @@ function App() {
             href="https://linkedin.com/in/kevin-guillaume-722544239/"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+            className="rounded-full transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <LinkedinIcon />
           </a>
@@ -695,13 +695,13 @@ function App() {
             href="https://x.com/KevinG11_?lang=en"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+            className="rounded-full transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <XIcon />
           </a>
           <a
             href="mailto:keving3492@gmail.com"
-            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+            className="rounded-full transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <EmailIcon />
           </a>
@@ -709,7 +709,7 @@ function App() {
             href="/KevinResume_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5"
+            className="rounded-full transition-transform duration-200 ease-out hover:scale-125 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
           >
             <ResumeIcon />
           </a>
@@ -801,7 +801,7 @@ function App() {
             <button
               type="button"
               onClick={() => setPlayed(true)}
-              className="mt-6 flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold uppercase tracking-wide text-black transition-colors hover:bg-white/90"
+              className="mt-6 flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold uppercase tracking-wide text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
             >
               <PlayIcon />
               Play Now
@@ -811,7 +811,7 @@ function App() {
             <button
               type="button"
               onClick={() => setPlayed(false)}
-              className="mt-6 flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold uppercase tracking-wide text-white/90 transition-colors hover:bg-white/10"
+              className="mt-6 flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 font-semibold uppercase tracking-wide text-white/90 transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
             >
               <BackIcon />
               Back
@@ -896,7 +896,7 @@ function App() {
               {projects.map((project) => (
                 <div
                   key={project.title}
-                  className="rounded-lg border border-white/20 bg-[#232222] p-6 sm:min-w-[280px] sm:flex-1"
+                  className="rounded-lg border border-white/20 bg-[#232222] p-6 transition-transform duration-200 ease-out hover:-translate-y-1 sm:min-w-[280px] sm:flex-1"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <h3 className="m-0 flex items-center gap-2 text-lg text-white">
@@ -908,7 +908,7 @@ function App() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-[13px] text-white/70 hover:text-white"
+                        className="flex items-center gap-1.5 text-[13px] text-white/70 transition-colors hover:text-white"
                       >
                         <ExternalLinkIcon />
                         {project.linkLabel}
