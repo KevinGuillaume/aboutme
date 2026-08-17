@@ -103,10 +103,10 @@ const projects = [
 ]
 
 const PRELOAD_IMAGES = [
-  '/ff7.jpeg',
-  '/totk.jpg',
-  '/silksong.jpg',
-  '/elden.jpg',
+  '/denver.jpg',
+  '/puertorico.jpg',
+  '/dbridge.JPG',
+  '/zion.jpg',
   '/avatar.png',
   '/pythonbook.jpg',
   '/filmposter.jpg',
@@ -117,33 +117,33 @@ const slides = [
     title: 'About Me',
     body: 'Placeholder content for the first slide.',
     content: 'This is the detail content for Box One.',
-    bg: '/ff7.jpeg',
-    font: "'Cinzel Decorative', serif",
-    titlePosition: 'top-center',
+    bg: '/dbridge.JPG',
+    font: "'Bebas Neue', sans-serif",
+    titlePosition: 'center',
   },
   {
     title: 'Experience',
     body: 'Placeholder content for the second slide.',
     content: 'This is the detail content for Box Two.',
-    bg: '/totk.jpg',
-    font: "'MedievalSharp', cursive",
-    titlePosition: 'center-left',
+    bg: '/denver.jpg',
+    font: "'Bebas Neue', sans-serif",
+    titlePosition: 'center',
   },
   {
     title: 'Projects',
     body: 'Placeholder content for the third slide.',
     content: 'This is the detail content for Box Three.',
-    bg: '/silksong.jpg',
-    font: "'Trajan Pro', 'Trajan Pro 3', Cinzel, serif",
+    bg: '/puertorico.jpg',
+    font: "'Bebas Neue', sans-serif",
     titlePosition: 'center',
   },
   {
     title: 'Skills',
     body: 'Placeholder content for the fourth slide.',
     content: 'This is the detail content for Box Four.',
-    bg: '/elden.jpg',
-    font: "'Mantinia', 'Mantinia Regular', Cinzel, serif",
-    titlePosition: 'top-center',
+    bg: '/zion.jpg',
+    font: "'Bebas Neue', sans-serif",
+    titlePosition: 'center',
     titleSize: 34,
   },
   // {
@@ -350,6 +350,8 @@ function Carousel({
                       fontFamily: slide.font,
                       fontWeight: 700,
                       fontSize: 'titleSize' in slide ? slide.titleSize : undefined,
+                      opacity: isHero ? 0 : 1,
+                      transition: 'opacity 300ms ease-in-out',
                     }}
                   >
                     {slide.title}
