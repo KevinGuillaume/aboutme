@@ -5,6 +5,9 @@ const SWIPE_THRESHOLD = 50
 const BASE_BOX_WIDTH = 220
 const BASE_BOX_HEIGHT = 190
 const BASE_OFFSET = 210
+const HERO_SIZE = 240
+const BASE_SCALE_X = BASE_BOX_WIDTH / HERO_SIZE
+const BASE_SCALE_Y = BASE_BOX_HEIGHT / HERO_SIZE
 
 const skillCategories = [
   {
@@ -316,20 +319,25 @@ function Carousel({
           const offset = i - index
           const isActive = offset === 0
           const isHero = played && isActive
+          const dimFactor = isActive ? 1 : 0.85
+          const scaleX = isHero ? 1 : BASE_SCALE_X * dimFactor
+          const scaleY = isHero ? 1 : BASE_SCALE_Y * dimFactor
 
           return (
             <button
               key={slide.title}
               type="button"
               onClick={() => onSelect(i)}
-              className={`absolute rounded-lg bg-cover bg-center transition-all duration-300 ease-in-out hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${played && !isActive ? 'pointer-events-none' : ''}`}
+              className={`absolute rounded-lg bg-cover bg-center transition-[transform,opacity,box-shadow,filter] duration-300 ease-in-out hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${played && !isActive ? 'pointer-events-none' : ''}`}
               style={{
-                width: isHero ? 240 : BASE_BOX_WIDTH,
-                height: isHero ? 240 : BASE_BOX_HEIGHT,
+                width: HERO_SIZE,
+                height: HERO_SIZE,
                 backgroundImage: `url(${slide.bg})`,
+                transformOrigin: 'left center',
+                willChange: 'transform, opacity',
                 transform: isHero
                   ? 'translateX(0) scale(1)'
-                  : `translateX(${offset * BASE_OFFSET}px) scale(${isActive ? 1 : 0.85})`,
+                  : `translateX(${offset * BASE_OFFSET}px) scale(${scaleX}, ${scaleY})`,
                 zIndex: isActive ? 10 : 10 - Math.abs(offset),
                 opacity: played && !isActive ? 0 : isActive ? 1 : 0.6,
                 boxShadow: isHero
@@ -814,7 +822,7 @@ function App() {
               className="mt-6 flex items-center gap-2 rounded-full bg-white px-6 py-3 font-semibold uppercase tracking-wide text-black transition-colors hover:bg-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg)]"
             >
               <PlayIcon />
-              Play Now
+              Learn More
             </button>
           )}
           {played && (
