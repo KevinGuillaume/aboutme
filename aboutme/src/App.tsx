@@ -44,7 +44,7 @@ const experience = [
     role: 'Software Engineer',
     timeSpent: 'May 2023 — Present',
     caption:
-      'Building tools, including model development, dashboards, and data pipelines, to support traders. While also building products for our investors and internal departments to faciliate different needs.',
+      'Building tools, including pricing model development, dashboards, and data pipelines, to support traders. While also building products for our investors and internal departments to faciliate different needs.',
     note: '* Name redacted for compliance reasons.',
   },
   {
@@ -52,13 +52,13 @@ const experience = [
     role: 'Software Engineer',
     timeSpent: 'July 2022 — May 2023',
     caption:
-      'Built applications with the State of Missouri to provide citizens access to financial aid programs, while also empowering government case workers the ability to manage these new and ongoing applications.',
+      'I worked with the State of Missouri to create a full stack application to provide citizens with access to financial aid programs, while also empowering government case workers the ability to manage these new and ongoing financial aid applications.',
   },
   {
     title: 'HBR Consulting',
     role: 'Full-Stack Engineer Intern',
     timeSpent: 'August 2021 — July 2022',
-    caption: 'Full-stack intern where I increased overall employee collaboration and connection.',
+    caption: 'Full-stack intern where I increased overall employee collaboration and connection. I created an internal knowledge database which allowed teams to communicate and collaborate effectively.',
   },
 ]
 
@@ -751,7 +751,7 @@ function App() {
           {index === 0 && (
             <div className="mt-6 flex max-w-5xl flex-col gap-4 sm:flex-row sm:gap-12">
               <div>
-                <div className="text-sm text-white/60">Last Read</div>
+                <div className="text-sm text-white/60">Currently Reading</div>
                 <div className="mt-1 flex items-center gap-2 text-lg text-white/90">
                   <img
                     src="/pythonbook.jpg"
@@ -762,7 +762,7 @@ function App() {
                 </div>
               </div>
               <div>
-                <div className="text-sm text-white/60">Last Listened</div>
+                <div className="text-sm text-white/60">On Repeat</div>
                 <div className="mt-1 flex items-center gap-2 text-lg text-white/90">
                   <SpotifyIcon />
                   93 'til Infinity
